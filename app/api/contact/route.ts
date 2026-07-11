@@ -19,73 +19,71 @@ export async function POST(req: Request) {
       to: ["puniaaman369@gmail.com"],
       subject: `New Consultation Request - ${fullName}`,
       html: `
-        <div style="font-family:Arial,sans-serif;padding:20px">
-          <h2>New Consultation Request</h2>
+        <div style="background-color: #122130; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 40px 20px; color: #d6d1ce; min-height: 100%;">
+          <div style="max-width: 600px; margin: 0 auto; background-color: #000000; border-top: 4px solid #ff2244; padding: 40px; box-sizing: border-box;">
+            
+            <!-- Header -->
+            <h2 style="color: #ffffff; font-size: 24px; font-weight: 600; margin-top: 0; margin-bottom: 24px; letter-spacing: normal; text-transform: none;">
+              New Consultation Request
+            </h2>
+            
+            <p style="font-size: 15px; color: #d4d4d4; margin-bottom: 32px; line-height: 1.5;">
+              You have received a new consultation submission from the website. Here are the details:
+            </p>
 
-          <table cellpadding="8">
-            <tr>
-              <td><strong>Name</strong></td>
-              <td>${fullName}</td>
-            </tr>
+            <!-- Details Table -->
+            <table cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse; font-size: 14px;">
+              <tbody>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                  <td style="padding: 14px 0; width: 30%; color: #ffffff; font-weight: 600; vertical-align: top;">Name</td>
+                  <td style="padding: 14px 0; color: #d6d1ce; vertical-align: top;">${fullName}</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                  <td style="padding: 14px 0; color: #ffffff; font-weight: 600; vertical-align: top;">Email</td>
+                  <td style="padding: 14px 0; color: #d6d1ce; vertical-align: top;">
+                    <a href="mailto:${email}" style="color: #ff2244; text-decoration: none;">${email}</a>
+                  </td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                  <td style="padding: 14px 0; color: #ffffff; font-weight: 600; vertical-align: top;">Phone</td>
+                  <td style="padding: 14px 0; color: #d6d1ce; vertical-align: top;">${phone}</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                  <td style="padding: 14px 0; color: #ffffff; font-weight: 600; vertical-align: top;">Company</td>
+                  <td style="padding: 14px 0; color: #d6d1ce; vertical-align: top;">${companyName || "N/A"}</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                  <td style="padding: 14px 0; color: #ffffff; font-weight: 600; vertical-align: top;">Requirement</td>
+                  <td style="padding: 14px 0; color: #d6d1ce; vertical-align: top;">${approvalRequirement}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 14px 0; color: #ffffff; font-weight: 600; vertical-align: top;">Message</td>
+                  <td style="padding: 14px 0; color: #d6d1ce; line-height: 1.6; vertical-align: top; white-space: pre-line;">${message || "No message provided."}</td>
+                </tr>
+              </tbody>
+            </table>
 
-            <tr>
-              <td><strong>Email</strong></td>
-              <td>${email}</td>
-            </tr>
-
-            <tr>
-              <td><strong>Phone</strong></td>
-              <td>${phone}</td>
-            </tr>
-
-            <tr>
-              <td><strong>Company</strong></td>
-              <td>${companyName}</td>
-            </tr>
-
-            <tr>
-              <td><strong>Requirement</strong></td>
-              <td>${approvalRequirement}</td>
-            </tr>
-
-            <tr>
-              <td><strong>Message</strong></td>
-              <td>${message}</td>
-            </tr>
-          </table>
+            <!-- Footer Section -->
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 12px; color: #d4d4d4b3;">
+              Sent via Udyora Ventures Automated System
+            </div>
+            
+          </div>
         </div>
       `,
     });
 
     if (error) {
       console.error(error);
-
-      return NextResponse.json(
-        {
-          success: false,
-          error,
-        },
-        {
-          status: 500,
-        },
-      );
+      return NextResponse.json({ success: false, error }, { status: 500 });
     }
 
-    return NextResponse.json({
-      success: true,
-      data,
-    });
+    return NextResponse.json({ success: true, data });
   } catch (error) {
     console.error(error);
-
     return NextResponse.json(
-      {
-        success: false,
-        message: "Internal Server Error",
-      },
-      {
-        status: 500,
-      },
+      { success: false, message: "Internal Server Error" },
+      { status: 500 },
     );
   }
 }
