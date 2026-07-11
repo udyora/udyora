@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+:root {
+  /* colors */
+  --dark-100: #000000;
+  --dark-80: rgba(0, 0, 0, 0.8);
+  --dark-70: #000000b3;
+  --dark-20: #ffffff33;
+  --dark-16: #ffffff29;
+
+  --beige-100: #ffffff;
+  --beige-80: #d6d1ce;
+  --beige-70: #d4d4d4;
+  --beige-20: #fff9f3;
+
+  --red: #ff2244;
+  --red-15: rgba(255, 34, 68, 0.15);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-fraunces: var(--font-fraunces);
+
+  /* colors */
+  --color-dark-100: var(--dark-100);
+  --color-dark-80: var(--dark-80);
+  --color-dark-70: var(--dark-70);
+  --color-dark-20: var(--dark-20);
+  --color-dark-16: var(--dark-16);
+  --color-subtitle: #d4d4d4b3;
+  --color-beige-100: var(--beige-100);
+  --color-beige-80: var(--beige-80);
+  --color-beige-70: var(--beige-70);
+  --color-beige-20: var(--beige-20);
+  --color-red: var(--red);
+  --color-red-15: var(--red-15);
+}
+
+body {
+  background-color: #122130;
+  color: var(--beige-80);
+  font-family: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  @apply mx-auto w-full !max-w-310 px-6
+}
+
+button {
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: 'evil-empire';
+  src: url('/fonts/evil-empire.otf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.heading {
+  font-family: 'evil-empire';
+}
