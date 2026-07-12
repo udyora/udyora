@@ -51,15 +51,29 @@ const Header: NextPage = () => {
                 Every Approval <Star /> Zero Hassles
               </motion.h1>
             </div>
-            <div className="p-4 mx-auto lg:hidden bg-[#122130]/50 w-full backdrop-blur-xs border border-white/10">
+            <div className="p-4 mx-auto w-fit lg:hidden">
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-white font-fraunces text-center font-medium leading-[150%] text-4xl tracking-tight"
+                className="font-fraunces text-center text-4xl font-medium leading-[120%] tracking-tight text-white"
+                style={{
+                  textShadow: `
+      -1px -1px 0 #122130,
+       1px -1px 0 #122130,
+      -1px  1px 0 #122130,
+       1px  1px 0 #122130,
+      -2px  0px 0 #122130,
+       2px  0px 0 #122130,
+       0px -2px 0 #122130,
+       0px  2px 0 #122130,
+       0px  6px 16px #122130
+    `,
+                }}
               >
-                One Window. <br />
-                Every Approval. <br /> Zero Hassles.
+                One Window <br />
+                Every Approval <br />
+                Zero Hassles
               </motion.h1>
             </div>
             <div

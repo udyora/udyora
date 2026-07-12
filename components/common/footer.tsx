@@ -36,7 +36,7 @@ export default function Footer() {
     try {
       setLoading(true);
 
-      const res = await fetch("/api/consultation", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -1,4 +1,3 @@
-import { ArrowUp } from "lucide-react";
 import SectionHeader from "./common/section-header";
 import Image from "next/image";
 
