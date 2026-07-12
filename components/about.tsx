@@ -11,14 +11,14 @@ export default function About() {
       />
       <div className="rounded-md border border-white/10 p-4 sm:p-6">
         <div className="grid gap-8 lg:grid-cols-2">
-          <div className="relative h-full aspect-4/3 md:aspect-4/2 lg:aspect-4/3 overflow-hidden rounded-md border border-[#fff9f333]">
+          <div className="relative w-full h-full aspect-4/3 md:aspect-4/2 lg:aspect-4/3 overflow-hidden rounded-md border border-[#fff9f333]">
             <Image
               src="/about-udyora.webp"
               alt="About Udyora"
               fill
               priority
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
-              className="object-cover object-right"
+              className="object-cover w-full object-right"
             />
           </div>
           <div className="flex flex-col justify-center">

@@ -142,7 +142,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
     <>
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-50 p-4 sm:p-6 flex items-center justify-center lg:justify-end overflow-hidden isolation-isolate">
+          <div className="fixed inset-0 z-50 p-4 sm:p-6 flex items-center justify-center overflow-hidden isolation-isolate">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -151,7 +151,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               className="absolute inset-0 bg-black/40 backdrop-blur-xs touch-none"
             />
 
-            <div className="container relative z-10 px-0! lg:px-4! mx-auto flex h-full items-center justify-center lg:justify-end pointer-events-none">
+            <div className="container relative z-10 px-0! lg:px-4! mx-auto flex h-full items-center justify-center pointer-events-none">
               <motion.div
                 initial={{ opacity: 0, scale: 0.96, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
