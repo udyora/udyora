@@ -26,7 +26,7 @@ const Header: NextPage = () => {
     <>
       <Navbar />
       <main ref={containerRef} className="text-dark overflow-x-hidden relative">
-        <section className="relative min-h-screen flex flex-col justify-center pb-16 pt-32 overflow-hidden">
+        <section className="relative min-h-screen flex flex-col pb-16 pt-32 overflow-hidden">
           <motion.div style={{ y: yBg }} className="absolute inset-0 -z-10">
             <img
               src="/hero-one.webp"
@@ -40,18 +40,7 @@ const Header: NextPage = () => {
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-150 h-75 bg-white/5 rounded-full blur-[120px] pointer-events-none -z-10" />
 
           <div className="flex flex-col justify-center gap-6">
-            <div className="p-4 mx-auto max-lg:hidden bg-[#122130]/50 w-full flex justify-center backdrop-blur-xs border border-white/10">
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-white font-fraunces flex items-center gap-4 text-center font-medium leading-[120%] text-4xl tracking-tight"
-              >
-                One Window <Star />
-                Every Approval <Star /> Zero Hassles
-              </motion.h1>
-            </div>
-            <div className="p-4 mx-auto w-fit lg:hidden">
+            <div className="p-4 mx-auto w-fit">
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
