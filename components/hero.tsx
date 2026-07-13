@@ -1,11 +1,10 @@
 "use client";
 import type { NextPage } from "next";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { Navbar } from "./common/navbar";
 import Button from "./common/button";
 import { ConsultationModal } from "./consultation-modal";
-import { Star } from "lucide-react";
 
 const Header: NextPage = () => {
   const containerRef = useRef<HTMLDivElement>(null);
