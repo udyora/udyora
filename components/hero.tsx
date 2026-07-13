@@ -26,7 +26,7 @@ const Header: NextPage = () => {
     <>
       <Navbar />
       <main ref={containerRef} className="text-dark overflow-x-hidden relative">
-        <section className="relative min-h-screen flex flex-col justify-end pb-16 pt-32 overflow-hidden">
+        <section className="relative min-h-screen flex flex-col justify-center pb-16 pt-32 overflow-hidden">
           <motion.div style={{ y: yBg }} className="absolute inset-0 -z-10">
             <img
               src="/hero-one.webp"

@@ -9,9 +9,9 @@ export default function About() {
         title="About"
         description="Discover how Udyora simplifies complex approval journeys through regulatory expertise, technical precision, and coordinated execution."
       />
-      <div className="rounded-md border border-white/10 p-4 sm:p-6">
+      <div className="rounded-md border border-white/10 overflow-hidden">
         <div className="grid gap-8 lg:grid-cols-2">
-          <div className="relative w-full h-full aspect-4/3 md:aspect-4/2 lg:aspect-4/3 overflow-hidden rounded-md border border-[#fff9f333]">
+          <div className="relative w-full h-full aspect-4/3 md:aspect-4/2 lg:aspect-4/3 overflow-hidden">
             <Image
               src="/about-udyora.webp"
               alt="About Udyora"
@@ -21,7 +21,7 @@ export default function About() {
               className="object-cover w-full object-right"
             />
           </div>
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center py-4 sm:py-6 pr-4 pl-4 max-lg:pt-0! lg:pl-0 lg:pr-6">
             <span className="mb-3 w-fit flex items-center gap-2 rounded-sm bg-[#2c2c2cb3] max-sm:text-sm px-2 sm:px-3 py-2 text-beige-100">
               <Star className="size-4 sm:size-5.5" size={22} /> Regulatory
               Excellence
