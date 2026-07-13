@@ -160,72 +160,59 @@ export default function Footer() {
             </div>
 
             <div className="mt-8 lg:mt-12 flex items-center gap-6 max-lg:justify-center">
+              {/* LinkedIn */}
               <Link href="#" className="group">
-                <svg
-                  className="size-8 text-beige-100 transition-opacity group-hover:opacity-70"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                >
-                  <rect x="2" y="2" width="20" height="20" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="18" cy="6" r="1" fill="currentColor" />
-                </svg>
+                <div className="w-8 h-8">
+                  <svg
+                    className="w-full h-full text-beige-100 transition-opacity group-hover:opacity-70"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  >
+                    <rect x="2" y="4" width="20" height="18" rx="4" />
+                    <path d="M7 10V17" />
+                    <path d="M7 7H7.01" />
+                    <path d="M11 17V10" />
+                    <path d="M11 13C11 11.5 12 10 14 10C16 10 17 11.5 17 13V17" />
+                  </svg>
+                </div>
               </Link>
 
+              {/* YouTube */}
               <Link href="#" className="group">
-                <svg
-                  className="size-8 text-beige-100 transition-opacity group-hover:opacity-70"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                >
-                  <rect x="2" y="2" width="20" height="20" rx="2" />
-                  <path d="M7 10V17" />
-                  <path d="M7 7H7.01" />
-                  <path d="M11 17V10" />
-                  <path d="M11 13C11 11.5 12 10 14 10C16 10 17 11.5 17 13V17" />
-                </svg>
+                <div className="w-8 h-8">
+                  <svg
+                    className="w-full h-full text-beige-100 transition-opacity group-hover:opacity-70"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  >
+                    <rect x="2" y="4" width="20" height="18" rx="4" />
+                    <path
+                      d="M10 9L15 12L10 15V9Z"
+                      fill="currentColor"
+                      stroke="none"
+                    />
+                  </svg>
+                </div>
               </Link>
 
+              {/* X */}
               <Link href="#" className="group">
-                <svg
-                  className="size-8 text-beige-100 transition-opacity group-hover:opacity-70"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                >
-                  <path d="M12 3C7.5 3 5 6 5 9.5C5 12 6.5 14 8.5 14C9 14 9.3 13.6 9.2 13.1L8.8 11.5C8.7 11 8.6 10.6 8.6 10.1C8.6 7.8 10.1 6.2 12.6 6.2C14.7 6.2 15.8 7.5 15.8 9.2C15.8 12 14.4 13.9 12.5 13.9C11.5 13.9 10.8 13.1 11.1 12.1L11.8 9.4C12 8.8 12.1 8.3 12.1 7.9C12.1 7 11.6 6.3 10.7 6.3C9.4 6.3 8.4 7.7 8.4 9.5C8.4 10.4 8.7 11 8.7 11L7.5 16C7.1 17.8 7.4 19 7.5 19.5C8 19.7 9.5 20 12 20C16.5 20 19 16.5 19 11.5C19 6.8 15.6 3 12 3Z" />
-                </svg>
-              </Link>
-
-              <Link href="#" className="group">
-                <svg
-                  className="size-8 text-beige-100 transition-opacity group-hover:opacity-70"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M14 8H13C11.9 8 11 8.9 11 10V12H14L13.5 15H11V20" />
-                </svg>
-              </Link>
-
-              <Link href="#" className="group">
-                <svg
-                  className="size-8 text-beige-100 transition-opacity group-hover:opacity-70"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                >
-                  <path d="M4 4L20 20" />
-                  <path d="M20 4L4 20" />
-                </svg>
+                <div className="w-8 h-8">
+                  <svg
+                    className="w-full h-full text-beige-100 transition-opacity group-hover:opacity-70"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  >
+                    <path d="M4 4L20 20" />
+                    <path d="M20 4L4 20" />
+                  </svg>
+                </div>
               </Link>
             </div>
           </div>

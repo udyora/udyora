@@ -47,14 +47,14 @@ export default function Forte() {
         description="Complete approval lifecycle under one roof. We simplify complex regulatory processes and accelerate project execution through integrated approval solutions."
       />
 
-      <div className="grid grid-cols-1 items-stretch gap-8 border-t border-white/10 pt-4 lg:grid-cols-12 lg:gap-12 lg:pt-8">
+      <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-12 lg:gap-12">
         {/* Services */}
         <div className="lg:col-span-7">
           {services.map((service, index) => (
             <div
               key={service.title}
-              className={`group border-b border-white/10 py-3 ${
-                index === services.length - 1 ? "border-b-0" : ""
+              className={`group border-b border-white/10 py-3 ${index === 0 && "pt-0!"} ${
+                index === services.length - 1 ? "border-b-0 pb-0!" : ""
               }`}
             >
               <h3 className="text-lg font-medium text-beige-80 transition-transform duration-300 group-hover:translate-x-2 max-lg:text-center">
