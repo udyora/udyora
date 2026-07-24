@@ -93,6 +93,7 @@ export default function Footer() {
 
                   <ArrowUp
                     size={28}
+                    aria-hidden="true"
                     className="rotate-45 text-beige-100 max-lg:size-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
                   />
                 </Link>
@@ -118,6 +119,7 @@ export default function Footer() {
 
                   <ArrowUp
                     size={28}
+                    aria-hidden="true"
                     className="rotate-45 text-beige-100 max-lg:size-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
                   />
                 </Link>
@@ -137,7 +139,11 @@ export default function Footer() {
             </p>
 
             <div className="mt-6 lg:mt-8 flex gap-4">
+              <label htmlFor="footer-newsletter-email" className="sr-only">
+                Email address
+              </label>
               <input
+                id="footer-newsletter-email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -146,12 +152,15 @@ export default function Footer() {
               />
 
               <button
+                type="button"
                 onClick={handleSubmit}
                 disabled={loading}
+                aria-label="Submit email for consultation request"
                 className="flex size-12 items-center justify-center rounded-md border border-white/10 transition-all hover:border-beige-100/20 disabled:opacity-50"
               >
                 <ArrowUp
                   size={28}
+                  aria-hidden="true"
                   className={`rotate-45 text-beige-100 max-lg:size-4 ${
                     loading ? "animate-pulse" : ""
                   }`}
@@ -161,7 +170,13 @@ export default function Footer() {
 
             <div className="mt-8 lg:mt-12 flex items-center gap-6 max-lg:justify-center">
               {/* LinkedIn */}
-              <Link href="#" className="group">
+              <Link
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Udyora Ventures on LinkedIn"
+                className="group"
+              >
                 <div className="w-8 h-8">
                   <svg
                     className="w-full h-full text-beige-100 transition-opacity group-hover:opacity-70"
@@ -169,6 +184,7 @@ export default function Footer() {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.5"
+                    aria-hidden="true"
                   >
                     <rect x="2" y="4" width="20" height="18" rx="4" />
                     <path d="M7 10V17" />
@@ -180,7 +196,13 @@ export default function Footer() {
               </Link>
 
               {/* YouTube */}
-              <Link href="#" className="group">
+              <Link
+                href="https://www.youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Udyora Ventures on YouTube"
+                className="group"
+              >
                 <div className="w-8 h-8">
                   <svg
                     className="w-full h-full text-beige-100 transition-opacity group-hover:opacity-70"
@@ -188,6 +210,7 @@ export default function Footer() {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.5"
+                    aria-hidden="true"
                   >
                     <rect x="2" y="4" width="20" height="18" rx="4" />
                     <path
@@ -200,7 +223,13 @@ export default function Footer() {
               </Link>
 
               {/* X */}
-              <Link href="#" className="group">
+              <Link
+                href="https://www.x.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Udyora Ventures on X"
+                className="group"
+              >
                 <div className="w-8 h-8">
                   <svg
                     className="w-full h-full text-beige-100 transition-opacity group-hover:opacity-70"
@@ -208,6 +237,7 @@ export default function Footer() {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.5"
+                    aria-hidden="true"
                   >
                     <path d="M4 4L20 20" />
                     <path d="M20 4L4 20" />

@@ -123,7 +123,11 @@ export default function Connect({ isOpen }: { isOpen?: boolean }) {
         <div className="p-4 lg:p-6 col-span-7 h-fit">
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
+              <label htmlFor="connect-fullname" className="sr-only">
+                Full name
+              </label>
               <input
+                id="connect-fullname"
                 type="text"
                 required
                 placeholder="Daksh Rawat"
@@ -140,7 +144,11 @@ export default function Connect({ isOpen }: { isOpen?: boolean }) {
 
             <div className="grid gap-5 md:grid-cols-2">
               <div>
+                <label htmlFor="connect-email" className="sr-only">
+                  Email address
+                </label>
                 <input
+                  id="connect-email"
                   type="email"
                   required
                   placeholder="daksh@udyora.com"
@@ -156,7 +164,11 @@ export default function Connect({ isOpen }: { isOpen?: boolean }) {
               </div>
 
               <div>
+                <label htmlFor="connect-phone" className="sr-only">
+                  Phone number
+                </label>
                 <input
+                  id="connect-phone"
                   type="text"
                   required
                   placeholder="+91 9990533555"
@@ -172,7 +184,11 @@ export default function Connect({ isOpen }: { isOpen?: boolean }) {
               </div>
             </div>
             <div>
+              <label htmlFor="connect-company" className="sr-only">
+                Company name
+              </label>
               <input
+                id="connect-company"
                 type="text"
                 required
                 placeholder="Udyora Ventures Pvt Ltd"
@@ -199,6 +215,9 @@ export default function Connect({ isOpen }: { isOpen?: boolean }) {
               <button
                 type="button"
                 onClick={() => setOpen(!open)}
+                aria-haspopup="listbox"
+                aria-expanded={open}
+                aria-label={selectedApproval || DROPDOWN_PLACEHOLDER}
                 className="flex w-full items-center justify-between rounded-md border border-white/10 px-4 py-4 text-left"
               >
                 <span
@@ -209,15 +228,21 @@ export default function Connect({ isOpen }: { isOpen?: boolean }) {
 
                 <ChevronDown
                   size={18}
+                  aria-hidden="true"
                   className={`text-subtitle transition ${open ? "rotate-180" : ""}`}
                 />
               </button>
               {open && (
-                <div className="absolute left-0 top-full z-20 mt-2 w-full max-h-56 overflow-y-auto rounded-md border border-white/10 bg-[#0c1520] shadow-xl">
+                <div
+                  role="listbox"
+                  className="absolute left-0 top-full z-20 mt-2 w-full max-h-56 overflow-y-auto rounded-md border border-white/10 bg-[#0c1520] shadow-xl"
+                >
                   {approvalOptions.map((option) => (
                     <button
                       key={option}
                       type="button"
+                      role="option"
+                      aria-selected={selectedApproval === option}
                       onClick={() => {
                         setSelectedApproval(option);
                         setOpen(false);
@@ -231,7 +256,11 @@ export default function Connect({ isOpen }: { isOpen?: boolean }) {
               )}
             </div>
             <div>
+              <label htmlFor="connect-message" className="sr-only">
+                Project details
+              </label>
               <textarea
+                id="connect-message"
                 rows={5}
                 required
                 placeholder="Tell us about your project..."
@@ -269,18 +298,18 @@ export default function Connect({ isOpen }: { isOpen?: boolean }) {
 
       <div className="mt-6 grid gap-4 lg:gap-6 md:grid-cols-3">
         <div className="rounded-md border border-white/10 p-4 text-center">
-          <h4 className="text-xl lg:text-2xl text-subtitle font-fraunces">
+          <h3 className="text-xl lg:text-2xl text-subtitle font-fraunces">
             Office
-          </h4>
+          </h3>
           <p className="mt-1 text-subtitle">
             digitally in INDIA <br /> for the WORLD
           </p>
         </div>
 
         <div className="rounded-md border border-white/10 p-4 text-center">
-          <h4 className="text-xl lg:text-2xl text-subtitle font-fraunces">
+          <h3 className="text-xl lg:text-2xl text-subtitle font-fraunces">
             Working Hours
-          </h4>
+          </h3>
           <p className="mt-1 text-subtitle">
             Monday - Saturday
             <br />
@@ -289,9 +318,9 @@ export default function Connect({ isOpen }: { isOpen?: boolean }) {
         </div>
 
         <div className="rounded-md border border-white/10 p-4 text-center">
-          <h4 className="text-xl lg:text-2xl text-subtitle font-fraunces">
+          <h3 className="text-xl lg:text-2xl text-subtitle font-fraunces">
             Contact
-          </h4>
+          </h3>
           <p className="mt-1 text-subtitle">
             +91 99905 33555
             <br />

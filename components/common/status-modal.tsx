@@ -20,7 +20,12 @@ export default function StatusModal({
   return (
     <AnimatePresence>
       {state && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
+          role="alertdialog"
+          aria-modal="true"
+          aria-labelledby="status-modal-title"
+        >
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -41,14 +46,20 @@ export default function StatusModal({
               className="absolute top-4 right-4 text-white/40 hover:text-white transition-colors p-1.5 rounded-full hover:bg-white/5"
               aria-label="Close"
             >
-              <X size={18} />
+              <X size={18} aria-hidden="true" />
             </button>
 
-            <div className="mx-auto mb-5 flex h-24 w-24 items-center justify-center">
+            <div
+              className="mx-auto mb-5 flex h-24 w-24 items-center justify-center"
+              aria-hidden="true"
+            >
               {isSuccess ? <SuccessIllustration /> : <ErrorIllustration />}
             </div>
 
-            <h3 className="text-xl sm:text-2xl font-fraunces font-medium text-white mb-2">
+            <h3
+              id="status-modal-title"
+              className="text-xl sm:text-2xl font-fraunces font-medium text-white mb-2"
+            >
               {state.title}
             </h3>
             <p className="text-white/50 text-sm mb-6">{state.message}</p>
