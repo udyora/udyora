@@ -52,13 +52,13 @@ const projects = [
   },
 ];
 
-export default function Projects() {
+export default function ProjectsContent() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <section
       id="projects"
-      className="container pt-16 lg:pt-24 scroll-mt-10 overflow-hidden"
+      className="container project-swiper-wrapper pt-16 lg:pt-24 scroll-mt-10 overflow-hidden"
     >
       <SectionHeader
         title="Projects"
@@ -103,7 +103,7 @@ export default function Projects() {
                     alt={`${project.client} logo`}
                     fill
                     loading="lazy"
-                    sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 30vw"
+                    sizes="(max-width: 768px) 45vw, (max-width: 1024px) 30vw, 20vw"
                     className="object-contain p-4"
                   />
                 </div>
@@ -135,11 +135,18 @@ export default function Projects() {
         </Swiper>
 
         <div className="mt-6 md:mt-8 flex items-center gap-6 select-none">
-          <button className="project-prev flex items-center justify-center w-10 h-10 rounded-full border border-white/10 text-beige-100 hover:bg-white/5 hover:border-beige-100/30 active:scale-95 transition-all cursor-pointer">
-            <ArrowLeft size={18} />
+          <button
+            type="button"
+            aria-label="Previous project"
+            className="project-prev flex items-center justify-center w-10 h-10 rounded-full border border-white/10 text-beige-100 hover:bg-white/5 hover:border-beige-100/30 active:scale-95 transition-all cursor-pointer"
+          >
+            <ArrowLeft size={18} aria-hidden="true" />
           </button>
 
-          <div className="font-mono text-sm tracking-widest text-beige-100 min-w-[50px] text-center">
+          <div
+            className="font-mono text-sm tracking-widest text-beige-100 min-w-[50px] text-center"
+            aria-live="polite"
+          >
             <span className="text-white font-semibold">
               {String(activeIndex + 1).padStart(2, "0")}
             </span>
@@ -149,8 +156,12 @@ export default function Projects() {
             </span>
           </div>
 
-          <button className="project-next flex items-center justify-center w-10 h-10 rounded-full border border-white/10 text-beige-100 hover:bg-white/5 hover:border-beige-100/30 active:scale-95 transition-all cursor-pointer">
-            <ArrowRight size={18} />
+          <button
+            type="button"
+            aria-label="Next project"
+            className="project-next flex items-center justify-center w-10 h-10 rounded-full border border-white/10 text-beige-100 hover:bg-white/5 hover:border-beige-100/30 active:scale-95 transition-all cursor-pointer"
+          >
+            <ArrowRight size={18} aria-hidden="true" />
           </button>
         </div>
       </div>

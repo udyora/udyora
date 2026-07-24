@@ -65,3 +65,7 @@ button {
 .heading {
   font-family: 'evil-empire';
 }
+
+.project-swiper-wrapper .swiper-wrapper {
+  will-change: transform;
+}
