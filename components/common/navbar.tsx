@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { ArrowUp, ChevronDown, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 interface NavLinkItem {
   href: string;
@@ -63,11 +64,6 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // FIX: iOS Safari does NOT properly lock scroll with only `overflow: hidden`
-  // on body — the page still rubber-band scrolls underneath, which pushes/shifts
-  // the fixed mobile drawer up. Chrome respects overflow:hidden fine, so this bug
-  // only shows on Safari/iOS. We now also pin body with position:fixed + restore
-  // scroll position on close.
   useEffect(() => {
     const isMobileWidth = window.innerWidth < 1024;
 
@@ -121,9 +117,11 @@ export const Navbar: React.FC = () => {
               }}
               className="flex items-center heading text-white text-4xl lg:text-5xl gap-2"
             >
-              <img
+              <Image
                 className="h-full w-10 lg:w-12 object-contain rounded-md"
                 src="/logo.svg"
+                width={40}
+                height={48}
                 alt="udyora logo"
               />
               <span className="relative inline-block top-[3px] leading-[79%]">

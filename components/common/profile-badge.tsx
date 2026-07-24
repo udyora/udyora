@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 interface ProfileCardProps {
   name?: string;
@@ -78,9 +79,11 @@ export default function ProfileBadge({
           >
             {/* Profile Image Container with Online Indicator */}
             <div className="relative shrink-0">
-              <img
+              <Image
                 src={imageUrl}
                 alt={name}
+                width={48}
+                height={48}
                 className="w-12 h-12 rounded-full object-cover bg-white/5 border border-white/10"
               />
               {/* Green Online Dot */}

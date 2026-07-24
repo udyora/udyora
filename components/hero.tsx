@@ -1,6 +1,7 @@
 "use client";
 import type { NextPage } from "next";
 import { useRef, useState } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { Navbar } from "./common/navbar";
 import Button from "./common/button";
@@ -27,11 +28,15 @@ const Header: NextPage = () => {
       <main ref={containerRef} className="text-dark overflow-x-hidden relative">
         <section className="relative min-h-screen flex flex-col pb-16 pt-32 overflow-hidden">
           <motion.div style={{ y: yBg }} className="absolute inset-0 -z-10">
-            <img
+            <Image
               src="/hero-one.webp"
               alt="India's Project Approval Intelligence Platform - Udyora Ventures"
-              className="w-full h-full object-cover"
-              loading="eager"
+              fill
+              priority
+              fetchPriority="high"
+              sizes="100vw"
+              quality={75}
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-linear-to-t from-dark/95 via-dark/65 to-dark/30" />
           </motion.div>

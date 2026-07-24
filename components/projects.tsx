@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import SectionHeader from "./common/section-header";
@@ -96,11 +97,14 @@ export default function Projects() {
           {projects.map((project) => (
             <SwiperSlide key={project.client} className="h-auto py-2">
               <div className="h-full rounded-md border border-white/10 overflow-hidden bg-white/2 transition-all duration-300 hover:border-beige-100/20 flex flex-col items-center text-center">
-                <div className="w-full aspect-4/2 overflow-hidden p-4 border border-white/10 bg-white flex items-center justify-center">
-                  <img
+                <div className="relative w-full aspect-4/2 overflow-hidden p-4 border border-white/10 bg-white flex items-center justify-center">
+                  <Image
                     src={project.logo}
-                    alt={project.client}
-                    className="h-full w-full object-contain"
+                    alt={`${project.client} logo`}
+                    fill
+                    loading="lazy"
+                    sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 30vw"
+                    className="object-contain p-4"
                   />
                 </div>
                 <div className="flex flex-col items-center justify-between grow w-full">
@@ -130,7 +134,6 @@ export default function Projects() {
           ))}
         </Swiper>
 
-        {/* Custom Navigation Controls (Stable & No layout shifting) */}
         <div className="mt-6 md:mt-8 flex items-center gap-6 select-none">
           <button className="project-prev flex items-center justify-center w-10 h-10 rounded-full border border-white/10 text-beige-100 hover:bg-white/5 hover:border-beige-100/30 active:scale-95 transition-all cursor-pointer">
             <ArrowLeft size={18} />

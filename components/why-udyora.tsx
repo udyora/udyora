@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SectionHeader from "./common/section-header";
 
 const reasons = [
@@ -52,10 +53,13 @@ export default function WhyUdyora() {
             key={index}
             className="group rounded-md flex flex-col items-center border border-white/10 bg-white/2 p-6 lg:p-8 transition-all duration-300 hover:-translate-y-2 hover:border-beige-100/30"
           >
-            <div className="flex size-20 items-center justify-center rounded-full border border-beige-100/20 bg-white">
-              <img
+            <div className="relative flex size-20 items-center justify-center rounded-full border border-beige-100/20 bg-white">
+              <Image
                 src={reason.icon}
                 alt={reason.title}
+                width={40}
+                height={40}
+                loading="lazy"
                 className="size-10 opacity-90 transition-transform duration-300 group-hover:scale-110"
               />
             </div>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SectionHeader from "./common/section-header";
 
 const teamMembers = [
@@ -17,6 +18,7 @@ const teamMembers = [
     designation: "Chartered Accountant",
   },
 ];
+
 export default function Team() {
   return (
     <section id="team" className="container pt-16 lg:pt-24 scroll-mt-10">
@@ -25,16 +27,19 @@ export default function Team() {
         description="Meet the professionals behind Udyora who bring together regulatory expertise, technical knowledge, and coordinated execution to simplify complex approval journeys."
       />
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {teamMembers.map((member) => (
+        {teamMembers.map((member, index) => (
           <div
             key={member.name}
             className="group overflow-hidden rounded-md border border-white/10"
           >
-            <div className="aspect-4/3 overflow-hidden">
-              <img
+            <div className="relative aspect-4/3 overflow-hidden">
+              <Image
                 src={member.image}
-                alt={member.name}
-                className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                alt={`${member.name}, ${member.designation} at Udyora`}
+                fill
+                loading={index === 0 ? "eager" : "lazy"}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
               />
             </div>
             <div className="p-5">
