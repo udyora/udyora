@@ -1,170 +1,49 @@
 "use client";
-import { useState } from "react";
-import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";
-import SectionHeader from "./common/section-header";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import dynamic from "next/dynamic";
 
-import "swiper/css";
-import "swiper/css/navigation";
+const ProjectsContent = dynamic(() => import("./projects-content"), {
+  ssr: false,
+  loading: () => (
+    <section className="container pt-16 lg:pt-24 scroll-mt-10 overflow-hidden">
+      <div className="flex flex-col items-center gap-4 text-center">
+        <div className="h-4 w-24 animate-pulse rounded-full bg-white/10" />
+        <div className="h-10 w-56 animate-pulse rounded-md bg-white/10" />
+        <div className="h-4 w-full max-w-md animate-pulse rounded-md bg-white/5" />
+      </div>
 
-const projects = [
-  {
-    logo: "/avant-grade.webp",
-    client: "Avant Garde Cleanroom and Engg Solutions Private Limited",
-    department: "TCP Haryana",
-    services: [
-      "Change of Land Use | TCP Haryana",
-      "Building Plan Approval | TCP Haryana",
-      "no data",
-    ],
-  },
-  {
-    logo: "/jyoti.webp",
-    client: "Jyoti Solutions Works Private Limited",
-    department: "TCP Haryana",
-    services: [
-      "Change of Land Use | TCP Haryana",
-      "Building Plan Approval | TCP Haryana",
-      "Environmental NOC | HSPCB Haryana",
-    ],
-  },
-  {
-    logo: "/nifco.webp",
-    client: "Nifco India Private Limited",
-    department: "HSIIDC Haryana",
-    services: [
-      "Building Plan Approval | HSIIDC Haryana",
-      "Fire Safety Approval | DGFS Haryana",
-      "no data",
-    ],
-  },
-  {
-    logo: "/indian-oil.svg",
-    client: "Indian Oil Corporation Limited",
-    department: "R&D Haryana",
-    services: [
-      "Tool Design | R&D Haryana",
-      "Building Plan Approval | R&D Haryana",
-      "no data",
-    ],
-  },
-];
+      <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {Array.from({ length: 3 }).map((_, i) => (
+          <div
+            key={i}
+            className="h-full rounded-md border border-white/10 overflow-hidden bg-white/2 flex flex-col items-center text-center"
+          >
+            <div className="w-full aspect-4/2 animate-pulse bg-white/5 border border-white/10" />
 
-export default function ProjectsContent() {
-  const [activeIndex, setActiveIndex] = useState(0);
+            <div className="flex flex-col items-center justify-between grow w-full">
+              <div className="p-6 pb-2 border-b border-white/30 w-full flex justify-center">
+                <div className="h-6 w-3/4 animate-pulse rounded-md bg-white/10" />
+              </div>
 
-  return (
-    <section
-      id="projects"
-      className="container project-swiper-wrapper pt-16 lg:pt-24 scroll-mt-10 overflow-hidden"
-    >
-      <SectionHeader
-        title="Projects"
-        description="A selection of projects where Udyora successfully managed regulatory approvals, technical documentation, and statutory compliance across multiple sectors."
-      />
-
-      <div className="mt-10 project-swiper-wrapper flex flex-col items-center">
-        <Swiper
-          modules={[Navigation, Autoplay]}
-          spaceBetween={24}
-          loop={true}
-          autoplay={{
-            delay: 2000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
-          navigation={{
-            prevEl: ".project-prev",
-            nextEl: ".project-next",
-          }}
-          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-          breakpoints={{
-            0: {
-              slidesPerView: 1,
-            },
-            768: {
-              slidesPerView: 2,
-            },
-            1024: {
-              slidesPerView: 3,
-              loop: true,
-            },
-          }}
-          className="w-full"
-        >
-          {projects.map((project) => (
-            <SwiperSlide key={project.client} className="h-auto py-2">
-              <div className="h-full rounded-md border border-white/10 overflow-hidden bg-white/2 transition-all duration-300 hover:border-beige-100/20 flex flex-col items-center text-center">
-                <div className="relative w-full aspect-4/2 overflow-hidden p-4 border border-white/10 bg-white flex items-center justify-center">
-                  <Image
-                    src={project.logo}
-                    alt={`${project.client} logo`}
-                    fill
-                    loading="lazy"
-                    sizes="(max-width: 768px) 45vw, (max-width: 1024px) 30vw, 20vw"
-                    className="object-contain p-4"
-                  />
-                </div>
-                <div className="flex flex-col items-center justify-between grow w-full">
-                  <div className="p-6 pb-2 border-b border-white/30 w-full">
-                    <h3
-                      className={`${project.client === "Avant Garde Cleanroom and Engg Solutions Private Limited" && "max-w-none!"} font-fraunces max-w-50! mx-auto w-full pb-2 text-beige-100`}
-                    >
-                      {project.client}
-                    </h3>
-                  </div>
-
-                  <div className="p-6 w-full flex flex-col items-center">
-                    <div className="flex flex-wrap justify-center gap-2">
-                      {project.services.map((service) => (
-                        <span
-                          key={service}
-                          className={`${service === "no data" && "opacity-0"} ${service === "Building Plan Approval | R&D Haryana" && "opacity-0"} rounded-full border uppercase border-white/10 px-3 py-1 text-xs text-beige-100 bg-white/5`}
-                        >
-                          {service}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+              <div className="p-6 w-full flex flex-col items-center gap-3">
+                <div className="flex flex-wrap justify-center gap-2">
+                  <div className="h-6 w-32 animate-pulse rounded-full bg-white/5" />
+                  <div className="h-6 w-28 animate-pulse rounded-full bg-white/5" />
                 </div>
               </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-
-        <div className="mt-6 md:mt-8 flex items-center gap-6 select-none">
-          <button
-            type="button"
-            aria-label="Previous project"
-            className="project-prev flex items-center justify-center w-10 h-10 rounded-full border border-white/10 text-beige-100 hover:bg-white/5 hover:border-beige-100/30 active:scale-95 transition-all cursor-pointer"
-          >
-            <ArrowLeft size={18} aria-hidden="true" />
-          </button>
-
-          <div
-            className="font-mono text-sm tracking-widest text-beige-100 min-w-[50px] text-center"
-            aria-live="polite"
-          >
-            <span className="text-white font-semibold">
-              {String(activeIndex + 1).padStart(2, "0")}
-            </span>
-            <span className="opacity-40 mx-1">/</span>
-            <span className="opacity-40">
-              {String(projects.length).padStart(2, "0")}
-            </span>
+            </div>
           </div>
+        ))}
+      </div>
 
-          <button
-            type="button"
-            aria-label="Next project"
-            className="project-next flex items-center justify-center w-10 h-10 rounded-full border border-white/10 text-beige-100 hover:bg-white/5 hover:border-beige-100/30 active:scale-95 transition-all cursor-pointer"
-          >
-            <ArrowRight size={18} aria-hidden="true" />
-          </button>
-        </div>
+      <div className="mt-6 md:mt-8 flex items-center justify-center gap-6">
+        <div className="h-10 w-10 animate-pulse rounded-full bg-white/5" />
+        <div className="h-4 w-12 animate-pulse rounded-md bg-white/5" />
+        <div className="h-10 w-10 animate-pulse rounded-full bg-white/5" />
       </div>
     </section>
-  );
+  ),
+});
+
+export default function Projects() {
+  return <ProjectsContent />;
 }
