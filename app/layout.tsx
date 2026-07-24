@@ -1,22 +1,32 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Fraunces, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ScrollToTop from "@/components/common/scroll-top-top";
 
+// 1. Google Fonts setup with display: "swap" to avoid LCP text-render delay
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
+
+export const viewport: Viewport = {
+  themeColor: "#122130",
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://udyora.com"),
@@ -121,6 +131,16 @@ export default function RootLayout({
         h-full antialiased
       `}
     >
+      <head>
+        {/* 2. Custom OTF font preload link to instantly solve LCP delay */}
+        <link
+          rel="preload"
+          href="/fonts/evil-empire.otf"
+          as="font"
+          type="font/otf"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="min-h-full bg-black text-white">
         <ScrollToTop />
         {children}
