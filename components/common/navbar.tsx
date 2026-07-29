@@ -137,7 +137,10 @@ export const Navbar: React.FC = () => {
                   initial={{ opacity: 0, x: 30, scale: 0.98 }}
                   animate={{ opacity: 1, x: 0, scale: 1 }}
                   exit={{ opacity: 0, x: 20, scale: 0.98 }}
-                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{
+                    duration: 0.35,
+                    ease: [0.16, 1, 0.3, 1] as const,
+                  }}
                   className="hidden lg:flex items-center gap-5 bg-white/5 border border-white/10 backdrop-blur-xl rounded-md px-6 py-2.5 shadow-xl h-full"
                 >
                   {NavLinks.map((link, index) => {
@@ -178,7 +181,7 @@ export const Navbar: React.FC = () => {
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="flex items-center gap-4 text-white transition-all duration-300 bg-white/5 border border-white/10 backdrop-blur-xl rounded-md px-3 py-3 h-fit shadow-xl"
+              className="flex items-center gap-4 text-white transition-all duration-300 bg-white/5 border border-white/10 backdrop-blur-xl rounded-md px-4 py-3 h-full shadow-xl"
               aria-label="Toggle Menu"
             >
               <div className="relative w-5 h-4 flex flex-col justify-between items-center">
@@ -217,13 +220,6 @@ export const Navbar: React.FC = () => {
             />
 
             {/* Mobile Menu Drawer */}
-            {/* FIX: replaced `bottom-0` with a calculated dvh height.
-                iOS Safari's address bar show/hide changes the real viewport
-                height, so `top-[80px] bottom-0` was causing the drawer to
-                stretch/jump as Safari's chrome collapsed. `dvh` (dynamic
-                viewport height) tracks Safari's actual visible height, unlike
-                `vh` which is fixed to the largest possible viewport. Chrome
-                on Android doesn't have this quirk, hence "works fine in Chrome". */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
@@ -233,27 +229,37 @@ export const Navbar: React.FC = () => {
                 ease: "easeOut",
                 duration: 0.25,
               }}
-              className="lg:hidden fixed top-[80px] right-0 w-64 h-[calc(100dvh-80px)] bg-[#122130]/20 backdrop-blur-2xl border-l border-white/10 z-[100] p-6 flex flex-col justify-between shadow-2xl will-change-transform overflow-y-auto"
+              className="lg:hidden fixed top-[74px] right-0 w-64 h-[calc(100dvh-73px)] bg-[#122130]/20 backdrop-blur-2xl border-l border-white/10 z-[100] p-6 flex flex-col justify-between shadow-2xl will-change-transform overflow-y-auto"
             >
               <div className="flex flex-col gap-1">
-                {NavLinks.map((link) => {
+                {NavLinks.map((link, index) => {
                   const isActive = activeHash === link.href;
                   return (
-                    <Link
+                    <motion.div
                       key={link.name}
-                      href={link.href}
-                      onClick={() => {
-                        setActiveHash(link.href);
-                        setIsMenuOpen(false);
+                      initial={{ opacity: 0, x: 50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{
+                        duration: 0.3,
+                        delay: 0.1 + index * 0.06, // Har link 0.06s ke gap par right se slide karega
+                        ease: "easeOut",
                       }}
-                      className={`text-sm border-b border-white/10 font-medium text-end tracking-widest uppercase transition-all duration-300 py-3 flex items-center justify-between ${
-                        isActive
-                          ? "text-white font-semibold pl-3 border-l-2 border-white"
-                          : "text-white/50 hover:text-white hover:pl-3"
-                      }`}
                     >
-                      <ArrowUp className="-rotate-45 w-4 h-4" /> {link.name}
-                    </Link>
+                      <Link
+                        href={link.href}
+                        onClick={() => {
+                          setActiveHash(link.href);
+                          setIsMenuOpen(false);
+                        }}
+                        className={`text-sm border-b border-white/10 font-medium text-end tracking-widest uppercase transition-all duration-300 py-3 flex items-center justify-between ${
+                          isActive
+                            ? "text-white font-semibold pl-3 border-l-2 border-white"
+                            : "text-white/50 hover:text-white hover:pl-3"
+                        }`}
+                      >
+                        <ArrowUp className="-rotate-45 w-4 h-4" /> {link.name}
+                      </Link>
+                    </motion.div>
                   );
                 })}
               </div>
