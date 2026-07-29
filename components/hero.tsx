@@ -12,8 +12,38 @@ const ConsultationModal = dynamic(
   { ssr: false },
 );
 
-// Isko aise update karo:
+// Ultra-smooth Apple-like easing curve
 const SMOOTH_EASING = [0.16, 1, 0.3, 1] as const;
+
+// Word-by-word animation variants
+const wordContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1, // Har word 0.1s ke gap par aayega
+      delayChildren: 0.15,
+    },
+  },
+};
+
+const wordVariants = {
+  hidden: { opacity: 0, y: 35 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: SMOOTH_EASING,
+    },
+  },
+};
+
+const headingLines = [
+  ["One", "Window"],
+  ["Every", "Approval"],
+  ["Zero", "Hassle"],
+];
 
 const Header: NextPage = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -68,9 +98,9 @@ const Header: NextPage = () => {
           <div className="flex flex-col justify-center gap-6">
             <div className="p-4 mx-auto w-fit">
               <motion.h1
-                initial={{ opacity: 0, y: 35 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.15, ease: SMOOTH_EASING }}
+                variants={wordContainerVariants}
+                initial="hidden"
+                animate="visible"
                 className="font-fraunces text-center text-4xl font-medium leading-[120%] tracking-tight text-white"
                 style={{
                   textShadow: `
@@ -86,9 +116,19 @@ const Header: NextPage = () => {
     `,
                 }}
               >
-                One Window <br />
-                Every Approval <br />
-                Zero Hassle
+                {headingLines.map((line, lineIndex) => (
+                  <span key={lineIndex} className="block">
+                    {line.map((word, wordIndex) => (
+                      <motion.span
+                        key={wordIndex}
+                        variants={wordVariants}
+                        className="inline-block mr-[0.25em] last:mr-0"
+                      >
+                        {word}
+                      </motion.span>
+                    ))}
+                  </span>
+                ))}
               </motion.h1>
             </div>
 
@@ -96,7 +136,7 @@ const Header: NextPage = () => {
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.35, ease: SMOOTH_EASING }}
+              transition={{ duration: 0.9, delay: 0.65, ease: SMOOTH_EASING }}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               className="flex container justify-center cursor-pointer"
