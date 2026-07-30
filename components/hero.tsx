@@ -12,16 +12,14 @@ const ConsultationModal = dynamic(
   { ssr: false },
 );
 
-// Ultra-smooth Apple-like easing curve
 const SMOOTH_EASING = [0.16, 1, 0.3, 1] as const;
 
-// Word-by-word animation variants
 const wordContainerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1, // Har word 0.1s ke gap par aayega
+      staggerChildren: 0.1,
       delayChildren: 0.15,
     },
   },

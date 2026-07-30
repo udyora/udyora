@@ -13,6 +13,9 @@ interface ProfileCardProps {
   onClick?: () => void;
 }
 
+// Same smooth Apple-like easing curve used in Header
+const SMOOTH_EASING = [0.16, 1, 0.3, 1] as const;
+
 export default function ProfileBadge({
   name = "Satish Rawat",
   statusText = "Online",
@@ -48,7 +51,6 @@ export default function ProfileBadge({
     };
   }, []);
 
-  // Handle WhatsApp Click Action
   const handleClick = () => {
     if (onClick) {
       onClick();
@@ -61,21 +63,20 @@ export default function ProfileBadge({
   };
 
   return (
-    // Fixed positioning in bottom-right corner aligned with container width
     <div className="fixed max-w-310 px-6 left-1/2 -translate-x-1/2 mx-auto w-full bottom-6 flex justify-end right-6 z-50 pointer-events-auto">
       <AnimatePresence>
         {isVisible && (
           <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            key="profile-badge"
+            initial={{ opacity: 0, y: 24, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 40, scale: 0.95 }}
+            exit={{ opacity: 0, y: 16, scale: 0.97 }}
             transition={{
-              type: "spring",
-              stiffness: 260,
-              damping: 20,
+              duration: 0.6,
+              ease: SMOOTH_EASING,
             }}
             onClick={handleClick}
-            className="inline-flex items-center gap-3.5 bg-[#122130]/80 backdrop-blur-md py-2.5 pl-3 pr-6 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.35)] border border-white/10 hover:border-white/20 cursor-pointer hover:shadow-[0_12px_35px_rgba(0,0,0,0.5)] transition-all duration-300 select-none group"
+            className="inline-flex items-center gap-3.5 bg-[#122130]/80 backdrop-blur-md py-2.5 pl-3 pr-6 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.35)] border border-white/10 hover:border-white/20 cursor-pointer hover:shadow-[0_12px_35px_rgba(0,0,0,0.5)] transition-[border-color,box-shadow] duration-300 select-none group will-change-transform"
           >
             {/* Profile Image Container with Online Indicator */}
             <div className="relative shrink-0">
@@ -86,7 +87,6 @@ export default function ProfileBadge({
                 height={48}
                 className="w-12 h-12 rounded-full object-cover bg-white/5 border border-white/10"
               />
-              {/* Green Online Dot */}
               {isOnline && (
                 <span className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-[#00A843] border-2 border-[#122130] rounded-full" />
               )}
