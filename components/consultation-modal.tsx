@@ -18,6 +18,9 @@ const approvalOptions = [
   "Fire Safety Approval",
   "Occupancy Certification",
   "Tool And Prototype Design",
+  "Aerial Surveillance & Survey",
+  "3D Rendering & Walkthroughs",
+  "Business Development Support",
 ];
 
 const DROPDOWN_PLACEHOLDER = "Consultation Required For";

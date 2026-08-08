@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <ScrollTextHighlight text="We simplify complex regulatory processes by delivering end-to-end approvals and compliance services for industrial, commercial, institutional, and infrastructure projects. From land due diligence to occupancy certification, Udyora manages every critical approval through a single point of coordination." />
+      <ScrollTextHighlight text="We simplify complex regulatory processes by delivering end-to-end business services for industrial, commercial, institutional, and infrastructure projects. From land and regulatory approvals to aerial surveys, 3D visualization, and business support, Udyora manages every critical project through a single point of coordination." />
       <About />
       <Forte />
       <Projects />

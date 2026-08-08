@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { ArrowUp, ChevronDown, X } from "lucide-react";
+import { ArrowUp, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -241,7 +241,7 @@ export const Navbar: React.FC = () => {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{
                         duration: 0.3,
-                        delay: 0.1 + index * 0.06, // Har link 0.06s ke gap par right se slide karega
+                        delay: 0.1 + index * 0.06,
                         ease: "easeOut",
                       }}
                     >

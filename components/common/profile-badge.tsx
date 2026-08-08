@@ -13,7 +13,6 @@ interface ProfileCardProps {
   onClick?: () => void;
 }
 
-// Same smooth Apple-like easing curve used in Header
 const SMOOTH_EASING = [0.16, 1, 0.3, 1] as const;
 
 export default function ProfileBadge({

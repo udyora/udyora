@@ -28,20 +28,27 @@ export default function About() {
             </span>
 
             <h3 className="font-fraunces text-2xl sm:text-3xl lg:text-4xl leading-tight text-beige-100">
-              Your Trusted Partner For Project Approvals & Compliance
+              Your Trusted Partner for Seamless Project Execution
             </h3>
 
             <p className="mt-3 sm:mt-4 md:mt-6 sm:text-lg sm:leading-relaxed text-subtitle">
-              Udyora Ventures Pvt Ltd is a project advisory and regulatory
-              solutions company specializing in obtaining statutory approvals
-              required for development projects.
+              Udyora Ventures Pvt Ltd is a project advisory and single-window
+              solutions company, providing integrated support to businesses and
+              development projects throughout the project lifecycle.
             </p>
 
             <p className="mt-2 sm:text-lg sm:leading-relaxed text-subtitle">
-              Our multidisciplinary team coordinates technical documentation,
-              regulatory compliance, and government approvals, enabling clients
-              to focus on execution while we manage the complete approval
-              journey.
+              Our multidisciplinary expertise covers Land Due Diligence, Change
+              of Land Use, Building Plan Approval, Environmental Clearance, Fire
+              Safety Approval, Occupancy Certification, Aerial Surveillance &
+              Survey, 3D Rendering & Walkthroughs, and Business Development
+              Support.
+            </p>
+            <p className="mt-2 sm:text-lg sm:leading-relaxed text-subtitle">
+              By bringing diverse expertise under one roof, we streamline
+              complex requirements, coordinate critical processes, and enable
+              our clients to move from planning to execution with greater
+              efficiency, clarity, and confidence.
             </p>
           </div>
         </div>
