@@ -10,7 +10,7 @@ const servicesOne = [
   {
     title: "Road Access Permission",
     description:
-      "End-to-end assistance for securing road access approvals, including documentation, applications, regulatory coordination, and liaison with relevant authorities.",
+      "Assistance for securing road access approvals, including documentation, applications, regulatory coordination, and liaison with relevant authorities.",
   },
   {
     title: "Change of Land Use",
@@ -36,9 +36,9 @@ const servicesOne = [
 
 const servicesTwo = [
   {
-    title: "Occupancy Certification",
+    title: "Occupancy Certification Support",
     description:
-      "Final inspections, authority liaison, and certification support to ensure operational readiness.",
+      "Final inspections, authority coordination, and certification support to ensure seamless project readiness and compliance.",
   },
   {
     title: "Tool And Prototype Design",
@@ -63,7 +63,7 @@ const servicesTwo = [
   {
     title: "Renewable Energy Consultation",
     description:
-      "End-to-end advisory for renewable energy projects, covering feasibility, planning, approvals, regulatory coordination, and execution support from concept to commissioning.",
+      "Advisory for renewable energy projects, covering feasibility, planning, approvals, regulatory coordination, and execution support from concept to commissioning.",
   },
 ];
 
