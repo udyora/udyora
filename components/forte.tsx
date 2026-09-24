@@ -8,6 +8,11 @@ const servicesOne = [
       "Ownership verification, zoning assessment, feasibility analysis, and comprehensive regulatory review before project initiation.",
   },
   {
+    title: "Road Access Permission",
+    description:
+      "End-to-end assistance for securing road access approvals, including documentation, applications, regulatory coordination, and liaison with relevant authorities.",
+  },
+  {
     title: "Change of Land Use",
     description:
       "End-to-end documentation, application preparation, and coordination for seamless land use conversion approvals.",
@@ -53,7 +58,12 @@ const servicesTwo = [
   {
     title: "Business Development Support",
     description:
-      "Empowering business growth through strategic advisory, market expansion, partnerships, and end-to-end project development support.",
+      "Driving business growth through strategic advisory, market expansion, partnerships, and project development support.",
+  },
+  {
+    title: "Renewable Energy Consultation",
+    description:
+      "End-to-end advisory for renewable energy projects, covering feasibility, planning, approvals, regulatory coordination, and execution support from concept to commissioning.",
   },
 ];
 
